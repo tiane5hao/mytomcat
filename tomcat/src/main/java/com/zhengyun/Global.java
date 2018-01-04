@@ -6,4 +6,8 @@ package com.zhengyun;
 public class Global {
 
     public static String CATALINA_HOME_PROP = "catalina.home";
+
+    public static String WEBINF = "webapps/ROOT/WEB-INF";
+
+
 }

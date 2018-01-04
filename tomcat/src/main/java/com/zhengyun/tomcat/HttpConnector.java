@@ -1,10 +1,11 @@
-package tomcat;
+package com.zhengyun.tomcat;
 
 /**
  * Created by 听风 on 2017/12/31.
  */
-public class Service implements LifeCycle {
+public class HttpConnector implements Connector, LifeCycle{
 
+    private int port;
 
 
     public void init() {
@@ -18,4 +19,6 @@ public class Service implements LifeCycle {
     public void distory() {
 
     }
+
+
 }
