@@ -1,6 +1,6 @@
 package com.zhengyun;
 
-import com.sun.deploy.util.StringUtils;
+
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -48,6 +48,10 @@ public class Degister{
         return root;
     }
 
+    public Element getRoot(){
+        return root;
+    }
+
     public Degister addClassName(String nodeName, String className){
         classMap.put(nodeName, className);
         return this;
@@ -92,6 +96,9 @@ public class Degister{
     private Object createObject(String className){
         try {
             Class clazz = getClassLoader().loadClass(className);
+            if(clazz == null){
+                clazz = ClassLoader.getSystemClassLoader().loadClass(className);
+            }
             return clazz.newInstance();
         }catch (Exception e){
             e.printStackTrace();

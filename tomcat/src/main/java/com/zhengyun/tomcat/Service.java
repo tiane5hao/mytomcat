@@ -1,4 +1,4 @@
 package com.zhengyun.tomcat;
 
-public interface Service {
+public interface Service extends LifeCycle{
 }

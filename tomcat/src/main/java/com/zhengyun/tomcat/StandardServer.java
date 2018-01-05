@@ -15,11 +15,16 @@ public class StandardServer implements Server, LifeCycle {
     ArrayList<Listerner> listernerList = null;
 
     public void init() {
-
+        System.out.println("StandardServer init finish...");
+        for(Service service : serviceList){
+            service.init();
+        }
     }
 
     public void start() {
-
+        for(Service service : serviceList){
+            service.start();
+        }
     }
 
     public void distory() {

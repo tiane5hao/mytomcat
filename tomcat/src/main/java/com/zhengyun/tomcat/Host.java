@@ -18,7 +18,10 @@ public class Host implements Container{
     }
 
     public void init() {
-
+        if(context == null){
+            context = new Context();
+        }
+        context.init();
     }
 
     public void start() {

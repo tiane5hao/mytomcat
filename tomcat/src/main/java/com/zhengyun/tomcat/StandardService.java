@@ -13,7 +13,7 @@ public class StandardService implements Service, LifeCycle {
     Engine engine;
 
     public void init() {
-
+        engine.start();
     }
 
     public void start() {

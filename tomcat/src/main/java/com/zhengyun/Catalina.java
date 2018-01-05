@@ -13,12 +13,13 @@ public class Catalina {
     public void start(){
         System.out.println("Catalina.start");
         createServer();
-
-
+        server.init();
+        server.start();
     }
 
     private void createServer(){
         String serverPath = System.getProperty(Global.CATALINA_HOME_PROP) + "/conf/server.xml";
+        System.out.println(serverPath);
         Degister degister = new Degister(serverPath);
         degister.addClassName("Server", "com.zhengyun.tomcat.StandardServer");
         degister.addClassName("Service", "com.zhengyun.tomcat.StandardService");
@@ -29,7 +30,9 @@ public class Catalina {
         server = (Server) degister.createRootObject();
     }
 
-
-
-
+    public static void main(String[] args) {
+        Catalina catalina = new Catalina();
+        catalina.start();
+        System.out.println(catalina.server);
+    }
 }
